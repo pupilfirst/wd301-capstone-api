@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  location: MyString
+  start_at: 2023-05-29
+  ends_at: 2023-05-29
+
+two:
+  status: 1
+  location: MyString
+  start_at: 2023-05-29
+  ends_at: 2023-05-29
