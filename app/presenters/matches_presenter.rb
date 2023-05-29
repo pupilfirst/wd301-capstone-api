@@ -15,6 +15,8 @@ class MatchesPresenter
         ends_at: match.ends_at,
         score: calculate_score(match),
         teams: teams(match),
+        sport_name: sport_name(match),
+        playing_team: match.teams.first.id,
         story: match.story
       }
     end
@@ -23,11 +25,12 @@ class MatchesPresenter
   private
 
   def calculate_score(match)
-    if match.status == Match.statuses[:active]
+    if match.running?
+      # TODO: make score service
       "3-5" # calculate actual score based on time
+    else
+      "3-9" # TODO: remove this and store this score for ended matches
     end
-    # TODO: make score service
-    "3-9" #TODO: remove this and
   end
 
   def teams(match)
@@ -38,5 +41,10 @@ class MatchesPresenter
       }
     end
   end
+
+  def sport_name(match)
+    match.teams.first.sport.name
+  end
+
   attr_reader :matches
 end
