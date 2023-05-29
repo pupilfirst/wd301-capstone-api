@@ -14,4 +14,15 @@ Rails.application.routes.draw do
     end
   end
   resources :articles, only: [:index, :show]
+
+  resources :matches, only: [] do
+    collection do
+      get "/", to: "matches#index"
+    end
+
+    member do
+      get "/", to: "matches#show"
+      get "/score", to: "matches#score"
+    end
+  end
 end
