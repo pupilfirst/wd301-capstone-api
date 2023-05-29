@@ -5,11 +5,10 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :auth_token_hash, uniqueness: true, presence: true
 
-  def generate_auth_token_hash
-    loop do
-      token = SecureRandom.hex(32)
-      break token unless User.exists?(auth_token_hash: Digest::SHA256.hexdigest(token))
-    end
-  end
+  def generate_auth_token
+    token = SecureRandom.hex(32) + Time.now.to_i.to_s + self.id.to_s
+    self.auth_token_hash = Digest::SHA256.hexdigest(token)
 
+    token
+  end
 end
