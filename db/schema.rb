@@ -10,26 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_065723) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_29_110128) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "matches", force: :cascade do |t|
+    t.string "name"
     t.integer "status"
     t.string "location"
-    t.date "start_at"
-    t.date "ends_at"
-    t.bigint "team_1_id", null: false
-    t.bigint "team_2_id", null: false
+    t.datetime "start_at"
+    t.datetime "ends_at"
+    t.string "score"
+    t.text "story"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["team_1_id"], name: "index_matches_on_team_1_id"
-    t.index ["team_2_id"], name: "index_matches_on_team_2_id"
+  end
+
+  create_table "matches_teams", force: :cascade do |t|
+    t.bigint "team_id"
+    t.bigint "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_matches_teams_on_match_id"
+    t.index ["team_id"], name: "index_matches_teams_on_team_id"
   end
 
   create_table "sports", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "type"
+    t.integer "sport_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,7 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_065723) do
     t.index ["sport_id"], name: "index_teams_on_sport_id"
   end
 
-  add_foreign_key "matches", "teams", column: "team_1_id"
-  add_foreign_key "matches", "teams", column: "team_2_id"
   add_foreign_key "teams", "sports"
 end
