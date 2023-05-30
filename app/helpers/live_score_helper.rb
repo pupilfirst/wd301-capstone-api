@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class LiveScoreHelper
+module LiveScoreHelper
   private
 
   def self.seed_time
