@@ -49,3 +49,5 @@ group :development do
 end
 
 gem "rswag", "~> 2.9", :groups => [:test, :development]
+
+gem "rspec-rails", "~> 6.0", :group => :test
