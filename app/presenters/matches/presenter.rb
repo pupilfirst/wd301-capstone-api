@@ -3,12 +3,17 @@
 module Matches
   class Presenter
     def calculate_score(match)
+      teams = match.teams
+      i = -1
       if match.running?
-        # TODO: make score service
-        "3-5" # calculate actual score based on time
-      else
-        "3-9" # TODO: remove this and store this score for ended matches
-      end
+        LiveScoreHelper.live_score(match).split(",")
+      elsif match.score.nil? # if match has ended and score is nil
+        score = LiveScoreHelper.random_score
+        match.update!(score: score)
+        score.split(",")
+      else # if match has ended and score is not nil
+        match.score.split(",")
+      end.map { |s| i += 1; [teams[i].name, s] }.to_h
     end
 
     def teams(match)
@@ -23,6 +28,6 @@ module Matches
     def sport_name(match)
       match.teams.first.sport.name
     end
-
   end
+
 end
