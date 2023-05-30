@@ -7,5 +7,5 @@ article = Article.create!(
   summary: "Learn about the history and popularity of cricket worldwide.",
   content: content,
   thumbnail_url: "https://images.pexels.com/photos/7702229/pexels-photo-7702229.jpeg",
-  sport: "Cricket"
+  sport: Sport.find_by(sport_type: Sport.sport_types[:cricket])
 )
