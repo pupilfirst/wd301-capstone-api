@@ -107,7 +107,7 @@ RSpec.describe 'users', type: :request do
           name: 'John Doe',
           email: 'user9@example.com',
           password: 'StrongPassword@99',
-        },
+        }
       }
 
       response '201', 'user created' do

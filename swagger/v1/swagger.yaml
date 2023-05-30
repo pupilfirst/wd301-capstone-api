@@ -4,6 +4,29 @@ info:
   title: API V1
   version: v1
 paths:
+  "/articles":
+    get:
+      summary: list articles
+      tags:
+      - articles
+      responses:
+        '200':
+          description: successful
+  "/articles/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show article
+      tags:
+      - articles
+      responses:
+        '200':
+          description: successful
   "/matches":
     get:
       summary: list matches

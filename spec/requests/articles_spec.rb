@@ -5,6 +5,7 @@ RSpec.describe 'articles', type: :request do
   path '/articles' do
 
     get('list articles') do
+      tags 'articles'
       response(200, 'successful') do
 
         after do |example|
@@ -24,6 +25,7 @@ RSpec.describe 'articles', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show article') do
+      tags 'articles'
       response(200, 'successful') do
         let(:id) { '123' }
 
