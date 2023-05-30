@@ -25,4 +25,6 @@ Rails.application.routes.draw do
       get "/score", to: "matches#score"
     end
   end
+
+  resources :teams, only: %i[index show]
 end
