@@ -54,11 +54,9 @@ class UsersController < ApplicationController
   # POST /users/sign_in
   def sign_in
     user = User.find_by(email: user_params[:email])
-
     if user && user.authenticate(user_params[:password])
       token = user.generate_auth_token
-      user.save!
-      render json: { user: user_to_json(user), auth_token: user.auth_token_hash }, status: :ok
+      render json: { user: user_to_json(user), auth_token: token}, status: :ok
     else
       render json: { errors: ['Invalid email or password'] }, status: :unauthorized
     end

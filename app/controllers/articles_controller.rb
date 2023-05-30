@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
 
-    render json: @articles, status: :ok
+    render json: @articles.to_json(except: :updated_at) , status: :ok
   end
 
   # GET /articles/:id
