@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   end
 
   resources :teams, only: %i[index show]
+
+  resources :sports, only: %i[index show]
 end
