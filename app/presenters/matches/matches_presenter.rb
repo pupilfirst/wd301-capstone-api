@@ -12,6 +12,7 @@ module Matches
           name: match.name,
           location: match.location,
           sportName: sport_name(match),
+          endsAt: match.ends_at
         }
       end
     end
