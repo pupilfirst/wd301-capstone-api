@@ -40,8 +40,17 @@ RSpec.describe 'users', type: :request do
     end
 
     patch('update_preferences user') do
+      consumes 'application/json'
       tags 'Users'
       security [ApiKeyAuth: {}]
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          preferences: { type: :object },
+        },
+        required: [ 'preferences' ],
+      }
+
       response(200, 'successful') do
 
         after do |example|
@@ -59,8 +68,19 @@ RSpec.describe 'users', type: :request do
   path '/users/me/update_password' do
 
     patch('update_password user') do
+      consumes 'application/json'
       tags 'Users'
       security [ApiKeyAuth: {}]
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          current_password: { type: :string },
+          new_password: { type: :string },
+        },
+        required: [ 'current_password', 'new_password' ],
+      }
+
+
       response(200, 'successful') do
 
         after do |example|
@@ -78,7 +98,17 @@ RSpec.describe 'users', type: :request do
   path '/users/sign_in' do
 
     post('sign_in user') do
+      consumes 'application/json'
       tags 'Users'
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string },
+        },
+        required: [ 'email', 'password' ],
+      }
+
       response(200, 'successful') do
 
         after do |example|
