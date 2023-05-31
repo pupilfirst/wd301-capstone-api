@@ -8,6 +8,7 @@ class User < ApplicationRecord
   def generate_auth_token
     token = SecureRandom.hex(32) + Time.now.to_i.to_s + self.id.to_s
     self.auth_token_hash = Digest::SHA256.hexdigest(token)
+    self.save!
 
     token
   end

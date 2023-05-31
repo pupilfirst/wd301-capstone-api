@@ -11,7 +11,8 @@ module Matches
         score = LiveScoreHelper.random_score
         match.update!(score: score)
         score.split(",")
-      else # if match has ended and score is not nil
+      else
+        # if match has ended and score is not nil
         match.score.split(",")
       end.map { |s| i += 1; [teams[i].name, s] }.to_h
     end
@@ -28,6 +29,21 @@ module Matches
     def sport_name(match)
       match.teams.first.sport.name
     end
-  end
 
+    def make_match(match)
+      {
+        id: match.id,
+        isRunning: match.running?,
+        name: match.name,
+        location: match.location,
+        startsAt: match.start_at,
+        endsAt: match.ends_at,
+        score: calculate_score(match),
+        teams: teams(match),
+        sportName: sport_name(match),
+        playingTeam: match.teams.first.id,
+        story: match.story
+      }
+    end
+  end
 end
