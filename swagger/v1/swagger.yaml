@@ -4,6 +4,29 @@ info:
   title: API V1
   version: v1
 paths:
+  "/articles":
+    get:
+      summary: list articles
+      tags:
+      - articles
+      responses:
+        '200':
+          description: successful
+  "/articles/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show article
+      tags:
+      - articles
+      responses:
+        '200':
+          description: successful
   "/matches":
     get:
       summary: list matches
@@ -74,6 +97,111 @@ paths:
       responses:
         '200':
           description: successful
+  "/users/me":
+    get:
+      summary: me user
+      tags:
+      - users
+      security:
+      - ApiKeyAuth: {}
+      responses:
+        '200':
+          description: successful
+  "/users/me/preferences":
+    get:
+      summary: get_preferences user
+      tags:
+      - users
+      security:
+      - ApiKeyAuth: {}
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update_preferences user
+      tags:
+      - users
+      security:
+      - ApiKeyAuth: {}
+      responses:
+        '200':
+          description: successful
+  "/users/me/update_password":
+    patch:
+      summary: update_password user
+      tags:
+      - users
+      security:
+      - ApiKeyAuth: {}
+      responses:
+        '200':
+          description: successful
+  "/users/sign_in":
+    post:
+      summary: sign_in user
+      tags:
+      - users
+      responses:
+        '200':
+          description: successful
+  "/users":
+    post:
+      summary: create user
+      tags:
+      - users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+          content:
+            application/json:
+              examples:
+                example_0:
+                  value:
+                    user:
+                      id: 1
+                      name: John Doe
+                      email: user9@example.com
+                      preferences: {}
+                    auth_token: e7edbdb39a4b517a268c88e0fffae0e4fa34f793b5b717ae06868b123f3704821685478335
+        '422':
+          description: unprocessable entity
+          content:
+            application/json:
+              examples:
+                example_0:
+                  value:
+                    errors:
+                    - Password can't be blank
+                    - Name can't be blank
+                    - Email can't be blank
+                    - Email is invalid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+              example:
+                name: John Doe
+                email: user9@example.com
+                password: StrongPassword@99
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: Authorization
+      in: header
 servers:
 - url: http://{defaultHost}
   variables:

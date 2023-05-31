@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #wrap_parameters false
+  wrap_parameters false
   before_action :authenticate_auth_token, only: [:me, :get_preferences, :update_preferences, :update_password]
 
   # POST /users
