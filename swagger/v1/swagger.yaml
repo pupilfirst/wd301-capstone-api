@@ -102,6 +102,8 @@ paths:
       summary: me user
       tags:
       - users
+      security:
+      - ApiKeyAuth: {}
       responses:
         '200':
           description: successful
@@ -110,6 +112,8 @@ paths:
       summary: get_preferences user
       tags:
       - users
+      security:
+      - ApiKeyAuth: {}
       responses:
         '200':
           description: successful
@@ -117,6 +121,8 @@ paths:
       summary: update_preferences user
       tags:
       - users
+      security:
+      - ApiKeyAuth: {}
       responses:
         '200':
           description: successful
@@ -125,6 +131,8 @@ paths:
       summary: update_password user
       tags:
       - users
+      security:
+      - ApiKeyAuth: {}
       responses:
         '200':
           description: successful
@@ -188,6 +196,12 @@ paths:
                 name: John Doe
                 email: user9@example.com
                 password: StrongPassword@99
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: Authorization
+      in: header
 servers:
 - url: http://{defaultHost}
   variables:

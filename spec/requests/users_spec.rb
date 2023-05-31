@@ -6,6 +6,7 @@ RSpec.describe 'users', type: :request do
 
     get('me user') do
       tags 'users'
+      security [ApiKeyAuth: {}] # Include Bearer token in request
       response(200, 'successful') do
 
         after do |example|
@@ -24,6 +25,7 @@ RSpec.describe 'users', type: :request do
 
     get('get_preferences user') do
       tags 'users'
+      security [ApiKeyAuth: {}]
       response(200, 'successful') do
 
         after do |example|
@@ -39,6 +41,7 @@ RSpec.describe 'users', type: :request do
 
     patch('update_preferences user') do
       tags 'users'
+      security [ApiKeyAuth: {}]
       response(200, 'successful') do
 
         after do |example|
@@ -57,6 +60,7 @@ RSpec.describe 'users', type: :request do
 
     patch('update_password user') do
       tags 'users'
+      security [ApiKeyAuth: {}]
       response(200, 'successful') do
 
         after do |example|
