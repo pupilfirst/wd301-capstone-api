@@ -15,6 +15,11 @@ class MatchesController < ApplicationController
   end
 
   def score
-    render json: { msg: "showing score of matches #{params[:id]}" }
+    match = Match.find_by_id(params[:id])
+    if match
+      render json: Matches::ScorePresenter.new(match).as_json, status: :ok
+    else
+      render json: {error: "No match found with id as #{params}"}, status: :not_found
+    end
   end
 end

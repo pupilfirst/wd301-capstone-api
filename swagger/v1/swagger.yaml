@@ -1,10 +1,81 @@
 ---
-openapi: 3.0.3
+openapi: 3.0.1
 info:
-  title: My service
-  description: My service
-  version: 1.0.0
-servers:
-  - url: 'https://'
+  title: API V1
+  version: v1
 paths:
-  
+  "/matches":
+    get:
+      summary: list matches
+      responses:
+        '200':
+          description: successful
+  "/matches/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show match
+      responses:
+        '200':
+          description: successful
+  "/matches/{id}/score":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: score match
+      responses:
+        '200':
+          description: successful
+  "/sports":
+    get:
+      summary: list sports
+      responses:
+        '200':
+          description: successful
+  "/sports/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show sport
+      responses:
+        '200':
+          description: successful
+  "/teams":
+    get:
+      summary: list teams
+      responses:
+        '200':
+          description: successful
+  "/teams/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show team
+      responses:
+        '200':
+          description: successful
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:5000
