@@ -5,7 +5,7 @@ RSpec.describe 'users', type: :request do
   path '/users/me' do
 
     get('me user') do
-      tags 'users'
+      tags 'Users'
       security [ApiKeyAuth: {}] # Include Bearer token in request
       response(200, 'successful') do
 
@@ -24,7 +24,7 @@ RSpec.describe 'users', type: :request do
   path '/users/me/preferences' do
 
     get('get_preferences user') do
-      tags 'users'
+      tags 'Users'
       security [ApiKeyAuth: {}]
       response(200, 'successful') do
 
@@ -40,7 +40,7 @@ RSpec.describe 'users', type: :request do
     end
 
     patch('update_preferences user') do
-      tags 'users'
+      tags 'Users'
       security [ApiKeyAuth: {}]
       response(200, 'successful') do
 
@@ -59,7 +59,7 @@ RSpec.describe 'users', type: :request do
   path '/users/me/update_password' do
 
     patch('update_password user') do
-      tags 'users'
+      tags 'Users'
       security [ApiKeyAuth: {}]
       response(200, 'successful') do
 
@@ -78,7 +78,7 @@ RSpec.describe 'users', type: :request do
   path '/users/sign_in' do
 
     post('sign_in user') do
-      tags 'users'
+      tags 'Users'
       response(200, 'successful') do
 
         after do |example|
@@ -97,7 +97,7 @@ RSpec.describe 'users', type: :request do
 
     post('create user') do
       consumes 'application/json'
-      tags 'users'
+      tags 'Users'
       parameter name: :user, in: :body, schema: {
         type: :object,
         properties: {

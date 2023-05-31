@@ -5,6 +5,7 @@ RSpec.describe 'sports', type: :request do
   path '/sports' do
 
     get('list sports') do
+      tags 'Sports'
       response(200, 'successful') do
 
         after do |example|
@@ -24,6 +25,7 @@ RSpec.describe 'sports', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show sport') do
+      tags 'Sports'
       response(200, 'successful') do
         let(:id) { '123' }
 

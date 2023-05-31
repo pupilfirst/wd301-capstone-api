@@ -8,7 +8,7 @@ paths:
     get:
       summary: list articles
       tags:
-      - articles
+      - Articles
       responses:
         '200':
           description: successful
@@ -23,13 +23,15 @@ paths:
     get:
       summary: show article
       tags:
-      - articles
+      - Articles
       responses:
         '200':
           description: successful
   "/matches":
     get:
       summary: list matches
+      tags:
+      - Matches
       responses:
         '200':
           description: successful
@@ -43,25 +45,16 @@ paths:
         type: string
     get:
       summary: show match
-      responses:
-        '200':
-          description: successful
-  "/matches/{id}/score":
-    parameters:
-    - name: id
-      in: path
-      description: id
-      required: true
-      schema:
-        type: string
-    get:
-      summary: score match
+      tags:
+      - Matches
       responses:
         '200':
           description: successful
   "/sports":
     get:
       summary: list sports
+      tags:
+      - Sports
       responses:
         '200':
           description: successful
@@ -75,12 +68,16 @@ paths:
         type: string
     get:
       summary: show sport
+      tags:
+      - Sports
       responses:
         '200':
           description: successful
   "/teams":
     get:
       summary: list teams
+      tags:
+      - Teams
       responses:
         '200':
           description: successful
@@ -94,6 +91,8 @@ paths:
         type: string
     get:
       summary: show team
+      tags:
+      - Teams
       responses:
         '200':
           description: successful
@@ -101,7 +100,7 @@ paths:
     get:
       summary: me user
       tags:
-      - users
+      - Users
       security:
       - ApiKeyAuth: {}
       responses:
@@ -111,7 +110,7 @@ paths:
     get:
       summary: get_preferences user
       tags:
-      - users
+      - Users
       security:
       - ApiKeyAuth: {}
       responses:
@@ -120,7 +119,7 @@ paths:
     patch:
       summary: update_preferences user
       tags:
-      - users
+      - Users
       security:
       - ApiKeyAuth: {}
       responses:
@@ -130,7 +129,7 @@ paths:
     patch:
       summary: update_password user
       tags:
-      - users
+      - Users
       security:
       - ApiKeyAuth: {}
       responses:
@@ -140,7 +139,7 @@ paths:
     post:
       summary: sign_in user
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: successful
@@ -148,7 +147,7 @@ paths:
     post:
       summary: create user
       tags:
-      - users
+      - Users
       parameters: []
       responses:
         '201':

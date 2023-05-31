@@ -5,6 +5,7 @@ RSpec.describe 'teams', type: :request do
   path '/teams' do
 
     get('list teams') do
+      tags 'Teams'
       response(200, 'successful') do
 
         after do |example|
@@ -24,6 +25,7 @@ RSpec.describe 'teams', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show team') do
+      tags 'Teams'
       response(200, 'successful') do
         let(:id) { '123' }
 

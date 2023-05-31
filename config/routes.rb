@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
     member do
       get "/", to: "matches#show"
-      get "/score", to: "matches#score"
     end
   end
 

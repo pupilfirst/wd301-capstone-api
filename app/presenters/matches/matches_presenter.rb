@@ -6,9 +6,13 @@ module Matches
     end
 
     def as_json
-      # binding.irb
       matches.map do |match|
-        make_match match
+        {
+          id: match.id,
+          name: match.name,
+          location: match.location,
+          sportName: sport_name(match),
+        }
       end
     end
 

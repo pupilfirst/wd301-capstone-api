@@ -3,7 +3,7 @@
 module LiveScoreHelper
   private
 
-  def self.seed_time
+  def self.random_elapsed_time
     [rand(20), rand(20)] # value in minutes
   end
 
@@ -15,30 +15,37 @@ module LiveScoreHelper
   end
 
   def self.check_timing(match)
+    # Check if the match has ended,
+    # given that this will get only called when match is running
     if match.ends_at < DateTime.now
       # create new timing
       match.update(start_at: DateTime.now, ends_at: DateTime.now + 2.hours)
     end
   end
 
-  def self.saved_seed(match)
+  def self.saved_random_et(match)
+    # This function is kind of a hack
+    # We're storing random elapsed time for, running matches only
     score = match.score
-    seed = seed_time
+    # We're adding randomness, because we've two scores and one change variable (time)
+    random_et = random_elapsed_time
     if score
+      # Get old elapsed time
       score.split(",").map { |s| s.to_i }
     else
-      match.update!(score: "#{seed.first}, #{seed.last}")
-      seed
+      # Save random elapsed time for later
+      match.update!(score: "#{random_et.first}, #{random_et.last}")
+      random_et
     end
   end
 
   public
 
   def self.random_score
-    seed = seed_time
+    random_et = random_elapsed_time
     new_score = [
-      map_range(seed.first, 0, 120, 0, 15).to_i,
-      map_range(seed.last, 0, 120, 0, 15).to_i
+      map_range(random_et.first, 0, 120, 0, 15).to_i,
+      map_range(random_et.last, 0, 120, 0, 15).to_i
     ]
     "#{new_score.first},#{new_score.last}"
   end
@@ -46,22 +53,25 @@ module LiveScoreHelper
   def self.live_score(match)
     check_timing(match)
     time_elapsed = (Time.now - match.start_at) / 60
-    seeds = saved_seed(match)
+
+    # Get previously generated "initial elapsed time"
+    random_et_1, random_et_2 = saved_random_et(match)
+
     sport_type = match.teams.first.sport.sport_type
     new_max = case sport_type
-                     when Sport.sport_types[:cricket]
-                       300
-                     when Sport.sport_types[:basketball]
-                       120
-                     when Sport.sport_types[:table_tennis]
-                       11
-                     when Sport.sport_types[:rugby]
-                       25
-                     else
-                       15
-                     end
-    s1 = map_range(time_elapsed + seeds.first, 0, 120, 0, new_max).to_i.to_s
-    s2 = map_range(time_elapsed + seeds.last, 0, 120, 0, new_max).to_i.to_s
+              when Sport.sport_types[:cricket]
+                300
+              when Sport.sport_types[:basketball]
+                120
+              when Sport.sport_types[:table_tennis]
+                11
+              when Sport.sport_types[:rugby]
+                25
+              else
+                15
+              end
+    s1 = map_range(time_elapsed + random_et_1, 0, 120, 0, new_max).to_i.to_s
+    s2 = map_range(time_elapsed + random_et_2, 0, 120, 0, new_max).to_i.to_s
     "#{s1},#{s2}"
   end
 end
