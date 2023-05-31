@@ -1,3 +1,20 @@
+## WD301 Capstone API
+
+### Steps to run locally
+
+```
+bundle install
+
+cp example.env .env
+
+Update the values of DB_USERNAME and DB_PASSWORD in the new .env file.
+
+rails server
+```
+
+-----------------
+
+
 
 API Documentation
 
