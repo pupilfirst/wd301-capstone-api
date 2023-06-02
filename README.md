@@ -9,12 +9,12 @@ cp example.env .env
 
 Update the values of DB_USERNAME and DB_PASSWORD in the new .env file.
 
+rails db:setup
+
 rails server
 ```
 
------------------
-
-
+---
 
 API Documentation
 

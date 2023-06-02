@@ -111,3 +111,6 @@ end
 
 # make two matches as active
 Match.all.limit(2).each {|match| match.update!(status: Match.statuses[:running])}
+
+# load articles seeds file
+load Rails.root.join('db', 'seeds', 'articles.seeds.rb')
