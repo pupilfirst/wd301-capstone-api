@@ -32,8 +32,8 @@ Layout: # Layout is not Rubocop's responsibility. Use an auto-formatter like pre
   Enabled: false
 Metrics: # Rubocop metrics are useless.
   Enabled: false
-# Naming/VariableNumber:
-#   Enabled: false
+Naming/VariableNumber:
+  Enabled: false
 Lint/ShadowingOuterLocalVariable: # shadowing is a language feature - we should use it where appropriate.
   Enabled: false
 
