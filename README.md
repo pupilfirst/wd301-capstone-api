@@ -10,10 +10,24 @@ cp example.env .env
 # DB_USERNAME and DB_PASSWORD in the new .env file.
 
 rails db:setup
-rails server
+rails server -p 5000
+
+# Make sure you open localhost:5000
+
 ```
 
 ---
+
+## To regenerate swagger yaml
+
+```sn
+# If you make any changes to the specs requests and helper files that generate the swagger yaml run the following command
+
+rake rswag:specs:swaggerize
+```
+
+---
+
 
 API Documentation
 
