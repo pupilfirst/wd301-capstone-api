@@ -84,7 +84,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: wd301_capstone_api_production
-  username: wd301_capstone_api
-  password: <%= ENV["WD301_CAPSTONE_API_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
+  reconnect: true
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
