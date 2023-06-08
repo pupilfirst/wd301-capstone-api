@@ -241,7 +241,11 @@ components:
       name: Authorization
       in: header
 servers:
-- url: http://{defaultHost}
+- url: https://{hostWithSSL}
   variables:
-    defaultHost:
+    hostWithSSL:
+      default: wd301-capstone-api.pupilfirst.school
+- url: http://{hostWithoutSSL}
+  variables:
+    hostWithoutSSL:
       default: localhost:5000

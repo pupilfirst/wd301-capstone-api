@@ -34,10 +34,18 @@ RSpec.configure do |config|
 
       servers: [
         {
-          url: "http#{Rails.env.production? ? "s" : ""}://{defaultHost}",
+          url: "https://{hostWithSSL}",
           variables: {
-            defaultHost: {
-              default: Rails.env.production? ? "wd301-capstone-api.pupilfirst.school" : "localhost:5000"
+            hostWithSSL: {
+              default: "wd301-capstone-api.pupilfirst.school"
+            }
+          }
+        },
+        {
+          url: "http://{hostWithoutSSL}",
+          variables: {
+            hostWithoutSSL: {
+              default: "localhost:5000"
             }
           }
         }
