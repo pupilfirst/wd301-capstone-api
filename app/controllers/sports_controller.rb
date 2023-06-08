@@ -5,7 +5,7 @@ class SportsController < ApplicationController
   end
 
   def show
-    sport = Sport.find_by_id(params[:id])
+    sport = Sport.find_by(id: params[:id])
     if sport
       render json: { sport: sport.as_json(only: %i[id name]) }, status: :ok
     else

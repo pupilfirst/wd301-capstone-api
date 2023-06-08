@@ -60,11 +60,15 @@ stadiums = [
   "Harmony Stadium, Harmonia",
 ]
 
+puts "Seeding Sports..."
+
 sports.each do |sport|
   Sport.create!(
     name: sport.first,
   ).update!(sport_type: Sport.sport_types[sport.last])
 end
+
+puts "Seeding Teams..."
 
 def create_teams(team_names)
   sport_id = Sport.first.id
@@ -78,6 +82,8 @@ def create_teams(team_names)
 end
 
 create_teams(team_names)
+
+puts "Seeding Matches..."
 
 def match_story(match)
   file_path = Dir.pwd + "/db/match_descriptions/" <<  match.teams.first.sport.sport_type.to_s << ".txt"

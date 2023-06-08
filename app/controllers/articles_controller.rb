@@ -3,14 +3,14 @@ class ArticlesController < ApplicationController
   # GET /articles
   def index
     articles = Article.all
-    render json: ArticlesPresenter.new(articles).as_json, status: :ok
+    render json: ArticlesPresenter.index(articles), status: :ok
   end
 
   # GET /articles/:id
   def show
-    article = Article.find_by_id(params[:id])
+    article = Article.find_by(id: params[:id])
     if article
-      render json: article, status: :ok
+      render json: ArticlesPresenter.show(article), status: :ok
     else
       render json: { errors: ['Article not found'] }, status: :not_found
     end
