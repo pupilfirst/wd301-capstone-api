@@ -43,12 +43,15 @@ gem "rubocop"
 gem "rubocop-rails"
 gem "rubocop-rspec"
 
+# Seamlessly adds a Swagger to Rails-based API's
+gem 'rswag-api', "~> 2.9"
+gem 'rswag-ui', "~> 2.9"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
   gem "rspec-rails", "~> 6.0"
-  gem "rswag", "~> 2.9"
   gem "rswag-specs", "~> 2.9"
 end
 
