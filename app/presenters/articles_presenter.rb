@@ -9,6 +9,8 @@ class ArticlesPresenter
         title: article.title,
         thumbnail: article.thumbnail_url,
         sport: sport(article),
+        date: article.created_at,
+        summary: article.summary
       }
     end
   end
