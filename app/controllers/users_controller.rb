@@ -68,9 +68,14 @@ class UsersController < ApplicationController
   # POST /users/sign_in
   def sign_in
     user = User.find_by(email: user_params[:email])
+
     if user && user.authenticate(user_params[:password])
       token = user.generate_auth_token
-      render json: { user: user_to_json(user), auth_token: token }, status: :ok
+      render json: {
+               user: user_to_json(user, include_preferences: true),
+               auth_token: token
+             },
+             status: :ok
     else
       render json: {
                errors: ['Invalid email or password']
@@ -93,7 +98,8 @@ class UsersController < ApplicationController
     params.permit(:current_password, :new_password)
   end
 
-  def user_to_json(user)
-    user.as_json(only: %i[id name email preferences])
+  def user_to_json(user, include_preferences = false)
+    return user.as_json(only: %i[id name email]) unless include_preferences
+    user.as_json(only: %i[id name email preferences]) if include_preferences
   end
 end
