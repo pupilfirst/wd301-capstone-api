@@ -1,8 +1,8 @@
 require 'swagger_helper'
 
 RSpec.describe 'users', type: :request do
-  path '/users/me' do
-    get('me user') do
+  path '/user' do
+    get('user details') do
       tags 'Users'
       security [ApiKeyAuth: {}] # Include Bearer token in request
       response(200, 'successful') do
@@ -18,7 +18,7 @@ RSpec.describe 'users', type: :request do
     end
   end
 
-  path '/users/me/preferences' do
+  path '/user/preferences' do
     get('get_preferences user') do
       tags 'Users'
       security [ApiKeyAuth: {}]
@@ -63,7 +63,7 @@ RSpec.describe 'users', type: :request do
     end
   end
 
-  path '/users/me/update_password' do
+  path '/user/password' do
     patch('update_password user') do
       consumes 'application/json'
       tags 'Users'

@@ -96,9 +96,9 @@ paths:
       responses:
         '200':
           description: successful
-  "/users/me":
+  "/user":
     get:
-      summary: me user
+      summary: user details
       tags:
       - Users
       security:
@@ -106,7 +106,7 @@ paths:
       responses:
         '200':
           description: successful
-  "/users/me/preferences":
+  "/user/preferences":
     get:
       summary: get_preferences user
       tags:
@@ -136,7 +136,7 @@ paths:
                   type: object
               required:
               - preferences
-  "/users/me/update_password":
+  "/user/password":
     patch:
       summary: update_password user
       tags:
