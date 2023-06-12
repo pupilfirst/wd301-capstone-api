@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   wrap_parameters false
-  before_action :authenticate_auth_token, only: [:me, :get_preferences, :update_preferences, :update_password]
+  before_action :authenticate_auth_token,
+                only: %i[me get_preferences update_preferences update_password]
 
   # POST /users
   def create
@@ -9,24 +10,26 @@ class UsersController < ApplicationController
 
     if user.save
       render json: {
-        user: user_to_json(user),
-        auth_token: auth_token
-      }, status: :created
+               user: user_to_json(user),
+               auth_token: auth_token
+             },
+             status: :created
     else
-      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      render json: {
+               errors: user.errors.full_messages
+             },
+             status: :unprocessable_entity
     end
   end
 
   # GET /users/me
   def me
-    render json: @user.as_json(only: [:id, :name, :email, :preferences]), status: :ok
+    render json: @user.as_json(only: %i[id name email preferences]), status: :ok
   end
 
   # GET /users/me/preferences
   def get_preferences
-    if @user
-      render json: @user.as_json(only: [:preferences]), status: :ok
-    end
+    render json: @user.as_json(only: [:preferences]), status: :ok if @user
   end
 
   # PATCH /users/me/preferences
@@ -34,7 +37,10 @@ class UsersController < ApplicationController
     if @user.update!(preferences_params)
       render json: @user.as_json(only: [:preferences]), status: :ok
     else
-      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+      render json: {
+               errors: @user.errors.full_messages
+             },
+             status: :unprocessable_entity
     end
   end
 
@@ -44,10 +50,18 @@ class UsersController < ApplicationController
       if @user.update(password: update_password_params[:new_password])
         render json: { status: 'success' }, status: :ok
       else
-        render json: { status: 'error', message: 'Password update failed' }, status: :unprocessable_entity
+        render json: {
+                 status: 'error',
+                 message: 'Password update failed'
+               },
+               status: :unprocessable_entity
       end
     else
-      render json: { status: 'error', message: 'Invalid current password' }, status: :unprocessable_entity
+      render json: {
+               status: 'error',
+               message: 'Invalid current password'
+             },
+             status: :unprocessable_entity
     end
   end
 
@@ -56,9 +70,12 @@ class UsersController < ApplicationController
     user = User.find_by(email: user_params[:email])
     if user && user.authenticate(user_params[:password])
       token = user.generate_auth_token
-      render json: { user: user_to_json(user), auth_token: token}, status: :ok
+      render json: { user: user_to_json(user), auth_token: token }, status: :ok
     else
-      render json: { errors: ['Invalid email or password'] }, status: :unauthorized
+      render json: {
+               errors: ['Invalid email or password']
+             },
+             status: :unauthorized
     end
   end
 
@@ -77,6 +94,6 @@ class UsersController < ApplicationController
   end
 
   def user_to_json(user)
-    user.as_json(only: [:id, :name, :email, :preferences])
+    user.as_json(only: %i[id name email preferences])
   end
 end
