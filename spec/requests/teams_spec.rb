@@ -1,13 +1,10 @@
 require 'swagger_helper'
 
 RSpec.describe 'teams', type: :request do
-
   path '/teams' do
-
     get('list teams') do
       tags 'Teams'
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {

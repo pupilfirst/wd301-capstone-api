@@ -31,21 +31,20 @@ RSpec.configure do |config|
           }
         }
       },
-
       servers: [
         {
-          url: "https://{hostWithSSL}",
+          url: 'https://{hostWithSSL}',
           variables: {
             hostWithSSL: {
-              default: "wd301-capstone-api.pupilfirst.school"
+              default: 'wd301-capstone-api.pupilfirst.school'
             }
           }
         },
         {
-          url: "http://{hostWithoutSSL}",
+          url: 'http://{hostWithoutSSL}',
           variables: {
             hostWithoutSSL: {
-              default: "localhost:5000"
+              default: 'localhost:5000'
             }
           }
         }

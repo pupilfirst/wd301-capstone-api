@@ -1,13 +1,10 @@
 require 'swagger_helper'
 
 RSpec.describe 'matches', type: :request do
-
   path '/matches' do
-
     get('list matches') do
       tags 'Matches'
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -40,5 +37,4 @@ RSpec.describe 'matches', type: :request do
       end
     end
   end
-
 end
