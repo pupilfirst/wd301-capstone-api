@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
 
     @user =
       User.find_by(
-        auth_token_hash: Digest::SHA256.hexdigest(auth_token)
+        auth_token_hash: Digest::SHA256.base64digest(auth_token)
       ) if header
 
     unless @user
