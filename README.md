@@ -1,9 +1,10 @@
-## WD301 Capstone API
+## [WD301 Capstone API](https://wd301-capstone-api.pupilfirst.school/)
 
 ### Steps to run locally
 
 ```sh
 bundle install
+npm install # To install package of prettier ruby plugin
 cp example.env .env
 
 # Before running the next two commands, update the values of
@@ -27,7 +28,6 @@ rake rswag:specs:swaggerize
 ```
 
 ---
-
 
 API Documentation
 
@@ -120,7 +120,7 @@ Users
 Me User
 
     Summary: Get current user information.
-    Path: /users/me
+    Path: /user
     Method: GET
     Tags: Users
     Security:
@@ -131,7 +131,7 @@ Me User
 Get Preferences User
 
     Summary: Get current user preferences.
-    Path: /users/me/preferences
+    Path: /user/preferences
     Method: GET
     Tags: Users
     Security:
@@ -142,7 +142,7 @@ Get Preferences User
 Update Preferences User
 
     Summary: Update current user preferences.
-    Path: /users/me/preferences
+    Path: /user/preferences
     Method: PATCH
     Tags: Users
     Security:
@@ -153,7 +153,7 @@ Update Preferences User
 Update Password User
 
     Summary: Update current user password.
-    Path: /users/me/update_password
+    Path: /user/update_password
     Method: PATCH
     Tags: Users
     Security:
