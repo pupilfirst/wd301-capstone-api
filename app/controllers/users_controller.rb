@@ -22,17 +22,17 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/me
+  # GET /user
   def me
     render json: @user.as_json(only: %i[id name email preferences]), status: :ok
   end
 
-  # GET /users/me/preferences
+  # GET /user/preferences
   def get_preferences
     render json: @user.as_json(only: [:preferences]), status: :ok if @user
   end
 
-  # PATCH /users/me/preferences
+  # PATCH /user/preferences
   def update_preferences
     begin
       if @user.update!(preferences_params)
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH /users/me/update_password
+  # PATCH /user/update_password
   def update_password
     if @user.authenticate(update_password_params[:current_password])
       if @user.update(password: update_password_params[:new_password])
