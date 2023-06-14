@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   wrap_parameters false
   before_action :authenticate_auth_token,
-                only: %i[me get_preferences update_preferences update_password]
+                only: %i[me preferences update_preferences update_password]
 
   # POST /users
   def create
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   # GET /user/preferences
-  def get_preferences
+  def preferences
     render json: @user.as_json(only: [:preferences]), status: :ok if @user
   end
 
@@ -37,10 +37,10 @@ class UsersController < ApplicationController
     if @user.update!(preferences_params)
       render json: @user.as_json(only: [:preferences]), status: :ok
     end
-  rescue => exception
+  rescue => e
     render json: {
              status: :unprocessable_entity,
-             error: exception.message
+             error: e.message
            },
            status: :unprocessable_entity
   end
