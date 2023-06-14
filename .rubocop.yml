@@ -6,6 +6,7 @@ AllCops:
     - "tmp/**/*"
     - "log/**/*"
     - "vendor/**/*"
+    - "node_modules/**/*"
 
 # Rails specific
 

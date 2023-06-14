@@ -13,6 +13,7 @@ RSpec.describe 'users', type: :request do
             }
           }
         end
+
         run_test!
       end
     end
@@ -30,6 +31,7 @@ RSpec.describe 'users', type: :request do
             }
           }
         end
+
         run_test!
       end
     end
@@ -58,6 +60,7 @@ RSpec.describe 'users', type: :request do
             }
           }
         end
+
         run_test!
       end
     end
@@ -91,6 +94,7 @@ RSpec.describe 'users', type: :request do
             }
           }
         end
+
         run_test!
       end
     end
@@ -123,6 +127,7 @@ RSpec.describe 'users', type: :request do
             }
           }
         end
+
         run_test!
       end
     end
@@ -182,7 +187,7 @@ RSpec.describe 'users', type: :request do
         let(:user) { { name: '', email: '', password: '' } } # Invalid data
 
         examples 'application/json' => {
-                   'errors': [
+                   errors: [
                      "Password can't be blank",
                      "Name can't be blank",
                      "Email can't be blank",

@@ -12,6 +12,7 @@ RSpec.describe 'articles', type: :request do
             }
           }
         end
+
         run_test!
       end
     end
@@ -33,6 +34,7 @@ RSpec.describe 'articles', type: :request do
             }
           }
         end
+
         run_test!
       end
     end
