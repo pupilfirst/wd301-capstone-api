@@ -13,8 +13,6 @@ class User < ApplicationRecord
   def generate_auth_token
     token = SecureRandom.urlsafe_base64(64)
     self.auth_token_hash = Digest::SHA256.base64digest(token)
-    self.save!
-
     token
   end
 end
