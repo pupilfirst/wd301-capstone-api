@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :user do
     collection do
       get "/", to: "users#me"
-      get "/preferences", to: "users#get_preferences"
+      get "/preferences", to: "users#preferences"
       patch "/preferences", to: "users#update_preferences"
       patch "/password", to: "users#update_password"
     end

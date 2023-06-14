@@ -10,7 +10,7 @@ class User < ApplicationRecord
             }
   validates :auth_token_hash, uniqueness: true, presence: true
 
-  def generate_auth_token
+  def generate_and_set_auth_token
     token = SecureRandom.urlsafe_base64(64)
     self.auth_token_hash = Digest::SHA256.base64digest(token)
     token

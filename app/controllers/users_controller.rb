@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   # POST /users
   def create
     user = User.new(user_params)
-    auth_token = user.generate_auth_token
+    token = user.generate_and_set_auth_token
 
     if user.save
       render json: {
                user: user_to_json(user),
-               auth_token: auth_token
+               auth_token: token
              },
              status: :created
     else
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
       return
     end
 
-    token = user.generate_auth_token
+    token = user.generate_and_set_auth_token
     if user.save
       render json: {
                user: user_to_json(user, include_preferences: true),
