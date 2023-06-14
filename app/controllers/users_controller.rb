@@ -34,17 +34,15 @@ class UsersController < ApplicationController
 
   # PATCH /user/preferences
   def update_preferences
-    begin
-      if @user.update!(preferences_params)
-        render json: @user.as_json(only: [:preferences]), status: :ok
-      end
-    rescue => exception
-      render json: {
-               status: :unprocessable_entity,
-               error: exception.message
-             },
-             status: :unprocessable_entity
+    if @user.update!(preferences_params)
+      render json: @user.as_json(only: [:preferences]), status: :ok
     end
+  rescue => exception
+    render json: {
+             status: :unprocessable_entity,
+             error: exception.message
+           },
+           status: :unprocessable_entity
   end
 
   # PATCH /user/update_password
