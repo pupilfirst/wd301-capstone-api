@@ -8,11 +8,16 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create] do
     collection do
-      get "/me", to: "users#me"
-      get "/me/preferences", to: "users#get_preferences"
-      patch "/me/preferences", to: "users#update_preferences"
-      patch "/me/update_password", to: "users#update_password"
-      post "/sign_in", to: "users#sign_in"
+     post "/sign_in", to: "users#sign_in"
+    end
+  end
+
+  resources :user do
+    collection do
+      get "/", to: "users#me"
+      get "/preferences", to: "users#preferences"
+      patch "/preferences", to: "users#update_preferences"
+      patch "/password", to: "users#update_password"
     end
   end
   resources :articles, only: [:index, :show]

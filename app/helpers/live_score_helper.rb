@@ -9,7 +9,9 @@ module LiveScoreHelper
 
   def self.map_range(value, old_min, old_max, new_min, new_max)
     # Calculate the normalized value
-    normalized_value = (value.to_f - old_min.to_f) / (old_max.to_f - old_min.to_f)
+    normalized_value =
+      (value.to_f - old_min.to_f) / (old_max.to_f - old_min.to_f)
+
     # Map the normalized value to the new range
     (normalized_value.to_f * (new_max.to_f - new_min)) + new_min
   end
@@ -27,11 +29,12 @@ module LiveScoreHelper
     # This function is kind of a hack
     # We're storing random elapsed time for, running matches only
     score = match.score
+
     # We're adding randomness, because we've two scores and one change variable (time)
     random_et = random_elapsed_time
     if score
       # Get old elapsed time
-      score.split(",").map { |s| s.to_i }
+      score.split(',').map { |s| s.to_i }
     else
       # Save random elapsed time for later
       match.update!(score: "#{random_et.first}, #{random_et.last}")
@@ -58,18 +61,19 @@ module LiveScoreHelper
     random_et_1, random_et_2 = saved_random_et(match)
 
     sport_type = match.teams.first.sport.sport_type
-    new_max = case sport_type
-              when Sport.sport_types[:cricket]
-                300
-              when Sport.sport_types[:basketball]
-                120
-              when Sport.sport_types[:table_tennis]
-                11
-              when Sport.sport_types[:rugby]
-                25
-              else
-                15
-              end
+    new_max =
+      case sport_type
+      when Sport.sport_types[:cricket]
+        300
+      when Sport.sport_types[:basketball]
+        120
+      when Sport.sport_types[:table_tennis]
+        11
+      when Sport.sport_types[:rugby]
+        25
+      else
+        15
+      end
     s1 = map_range(time_elapsed + random_et_1, 0, 120, 0, new_max).to_i.to_s
     s2 = map_range(time_elapsed + random_et_2, 0, 120, 0, new_max).to_i.to_s
     "#{s1},#{s2}"

@@ -2,73 +2,73 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
 sports = [
-  ["Basketball", :basketball],
-  ["American Football", :football],
-  ["Rugby", :rugby],
-  ["Field Hockey", :hockey],
-  ["Table Tennis", :table_tennis],
-  ["Cricket", :cricket],
+  ['Basketball', :basketball],
+  ['American Football', :football],
+  ['Rugby', :rugby],
+  ['Field Hockey', :hockey],
+  ['Table Tennis', :table_tennis],
+  ['Cricket', :cricket]
 ]
 
 team_names = [
-  "Thunderbolts",
-  "Dragonslayers",
-  "Phoenix Rising",
-  "Avalanche",
-  "Titans",
-  "Vortex Vipers",
-  "Spectral Shadows",
-  "Blitzkrieg",
-  "Fury United",
-  "Lightning Strikes",
-  "Serpents of Fire",
-  "Galaxy Warriors",
-  "Stormbreakers",
-  "Enigma Enforcers",
-  "Blaze Squadron",
-  "Phantom Phantoms",
-  "Celestial Chargers",
-  "Rebel Renegades",
-  "Inferno Ignitors",
-  "Stealth Strikers",
-  "Nova Knights",
-  "Crimson Crushers",
-  "Rapid Raptors",
-  "Shadow Assassins"
+  'Thunderbolts',
+  'Dragonslayers',
+  'Phoenix Rising',
+  'Avalanche',
+  'Titans',
+  'Vortex Vipers',
+  'Spectral Shadows',
+  'Blitzkrieg',
+  'Fury United',
+  'Lightning Strikes',
+  'Serpents of Fire',
+  'Galaxy Warriors',
+  'Stormbreakers',
+  'Enigma Enforcers',
+  'Blaze Squadron',
+  'Phantom Phantoms',
+  'Celestial Chargers',
+  'Rebel Renegades',
+  'Inferno Ignitors',
+  'Stealth Strikers',
+  'Nova Knights',
+  'Crimson Crushers',
+  'Rapid Raptors',
+  'Shadow Assassins'
 ]
 
 stadiums = [
-  "Victory Park, Triumph City",
-  "Emerald Arena, Emeraldville",
-  "Thunderdome, Stormville",
-  "Royal Stadium, Crownville",
-  "Phoenix Field, Blaze City",
-  "Legends Park, Mythopolis",
-  "Dreamland Stadium, Slumberburg",
-  "Liberty Arena, Freedonia",
-  "Starlight Stadium, Stardust City",
-  "Evergreen Park, Verdantville",
-  "Infinity Stadium, Eternity City",
-  "Silvermoon Arena, Lunaris",
-  "Majestic Park, Regalia",
-  "Aurora Stadium, Dawnville",
-  "Grand Arena, Metropolis",
-  "Diamond Dome, Gemstone City",
-  "Serenity Stadium, Tranquil Town",
-  "Golden Gate Park, Aurelia",
-  "Unity Arena, Concordia",
-  "Harmony Stadium, Harmonia",
+  'Victory Park, Triumph City',
+  'Emerald Arena, Emeraldville',
+  'Thunderdome, Stormville',
+  'Royal Stadium, Crownville',
+  'Phoenix Field, Blaze City',
+  'Legends Park, Mythopolis',
+  'Dreamland Stadium, Slumberburg',
+  'Liberty Arena, Freedonia',
+  'Starlight Stadium, Stardust City',
+  'Evergreen Park, Verdantville',
+  'Infinity Stadium, Eternity City',
+  'Silvermoon Arena, Lunaris',
+  'Majestic Park, Regalia',
+  'Aurora Stadium, Dawnville',
+  'Grand Arena, Metropolis',
+  'Diamond Dome, Gemstone City',
+  'Serenity Stadium, Tranquil Town',
+  'Golden Gate Park, Aurelia',
+  'Unity Arena, Concordia',
+  'Harmony Stadium, Harmonia'
 ]
 
-puts "Seeding Sports..."
+puts 'Seeding Sports...'
 
 sports.each do |sport|
-  Sport.create!(
-    name: sport.first,
-  ).update!(sport_type: Sport.sport_types[sport.last])
+  Sport
+    .create!(name: sport.first)
+    .update!(sport_type: Sport.sport_types[sport.last])
 end
 
-puts "Seeding Teams..."
+puts 'Seeding Teams...'
 
 def create_teams(team_names)
   sport_id = Sport.first.id
@@ -78,21 +78,19 @@ def create_teams(team_names)
     sport_id += 1
     return if sport_id >= limit
   end
-
 end
 
 create_teams(team_names)
 
-puts "Seeding Matches..."
+puts 'Seeding Matches...'
 
 def match_story(match)
-  file_path = Dir.pwd + "/db/match_descriptions/" <<  match.teams.first.sport.sport_type.to_s << ".txt"
+  file_path =
+    Dir.pwd + '/db/match_descriptions/' <<
+      match.teams.first.sport.sport_type.to_s << '.txt'
   file_content = File.read(file_path)
 
-  values = {
-    "##name" => match.name,
-    "##location" => match.location
-  }
+  values = { '##name' => match.name, '##location' => match.location }
 
   values.each do |blank, replacement|
     file_content.gsub!("#{blank}", replacement)
@@ -100,23 +98,30 @@ def match_story(match)
   match.update!(story: file_content)
 end
 
-Team.all.order(id: :asc).each_slice(2) do |teams|
-  team_1 = teams.first
-  team_2 = teams.last
-  location = stadiums[rand(stadiums.size)]
-  match = Match.create!(
-    name: "#{team_1.name} VS #{team_2.name} at #{location}",
-    status: Match.statuses[:ended],
-    location: location,
-    start_at: 2.hours.ago,
-    ends_at: Time.now,
-  )
-  match.teams << teams
-  match_story(match)
-end
+Team
+  .all
+  .order(id: :asc)
+  .each_slice(2) do |teams|
+    team_1 = teams.first
+    team_2 = teams.last
+    location = stadiums[rand(stadiums.size)]
+    match =
+      Match.create!(
+        name: "#{team_1.name} VS #{team_2.name} at #{location}",
+        status: Match.statuses[:ended],
+        location: location,
+        start_at: 2.hours.ago,
+        ends_at: Time.now
+      )
+    match.teams << teams
+    match_story(match)
+  end
 
 # make two matches as active
-Match.all.limit(2).each {|match| match.update!(status: Match.statuses[:running])}
+Match
+  .all
+  .limit(2)
+  .each { |match| match.update!(status: Match.statuses[:running]) }
 
 # load articles seeds file
 load Rails.root.join('db', 'seeds', 'articles.seeds.rb')

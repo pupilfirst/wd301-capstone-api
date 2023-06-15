@@ -2,17 +2,10 @@
 
 class TeamsPresenter
   def self.index(teams)
-    teams.map do |team|
-      show(team)
-    end
+    teams.map { |team| show(team) }
   end
 
   def self.show(team)
-    {
-      id: team.id,
-      name: team.name,
-      plays: team.sport.name
-    }
+    { id: team.id, name: team.name, plays: team.sport.name }
   end
 end
-

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ArticlesPresenter
-
   def self.index(articles)
     articles.map do |article|
       {
@@ -28,10 +27,7 @@ class ArticlesPresenter
   end
 
   def self.sport(article)
-    {
-      id: article.sport.id,
-      name: article.sport.name
-    }
+    { id: article.sport.id, name: article.sport.name }
   end
 
   private_class_method :sport

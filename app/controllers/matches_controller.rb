@@ -1,5 +1,4 @@
 class MatchesController < ApplicationController
-
   def index
     matches = Match.all
     render json: { matches: MatchesPresenter.index(matches) }, status: :ok
@@ -10,7 +9,10 @@ class MatchesController < ApplicationController
     if match
       render json: MatchesPresenter.show(match), status: :ok
     else
-      render json: { error: "No matches with id as #{params[:id]}" }, status: :not_found
+      render json: {
+               error: "No matches with id as #{params[:id]}"
+             },
+             status: :not_found
     end
   end
 end

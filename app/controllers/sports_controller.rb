@@ -9,7 +9,10 @@ class SportsController < ApplicationController
     if sport
       render json: { sport: sport.as_json(only: %i[id name]) }, status: :ok
     else
-      render json: { error: "No sport present with id as #{params[:id]}" }, status: :not_found
+      render json: {
+               error: "No sport present with id as #{params[:id]}"
+             },
+             status: :not_found
     end
   end
 end
