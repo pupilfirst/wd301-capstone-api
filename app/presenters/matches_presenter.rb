@@ -1,12 +1,15 @@
 class MatchesPresenter
   def self.index(matches)
     matches.map do |match|
+      # Calculate and update score, if match is running.
+      calculate_score(match)
       {
         id: match.id,
         name: match.name,
         location: match.location,
         sportName: sport_name(match),
-        endsAt: match.ends_at
+        endsAt: match.ends_at,
+        isRunning: match.running?
       }
     end
   end
