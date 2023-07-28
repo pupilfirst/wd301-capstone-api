@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_055600) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_143720) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_055600) do
     t.bigint "sport_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "articles_teams", id: false, force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "team_id", null: false
+    t.index ["article_id", "team_id"], name: "index_articles_teams_on_article_id_and_team_id"
+    t.index ["team_id", "article_id"], name: "index_articles_teams_on_team_id_and_article_id"
   end
 
   create_table "matches", force: :cascade do |t|
