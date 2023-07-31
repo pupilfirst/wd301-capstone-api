@@ -316,6 +316,7 @@ article_summaries = [
 
 2.times do
   Sport.all.each do |sport|
+    # Skipping rugby becuase to have a sport and teams associated with it have no articles to test empty state in the frontend built by students.
     next if sport.name == 'Rugby'
 
     teams = sport.teams.sample(2) # Selecting two random teams from this sport
@@ -340,6 +341,7 @@ end
 puts 'seeding articles with single team'
 
 Team.all.each do |team|
+  # Skipping rugby becuase to have a sport and teams associated with it have no articles to test empty state in the frontend built by students.
   next if team.sport.sport_type == 'rugby'
 
   article_titles = [
