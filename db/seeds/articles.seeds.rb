@@ -340,9 +340,7 @@ end
 puts 'seeding articles with single team'
 
 Team.all.each do |team|
-  next if team.name == 'Galaxy Warriors' || team.sport.sport_type == 'rugby'
-
-  n = rand(2..3)
+  next if team.sport.sport_type == 'rugby'
 
   article_titles = [
     "Exciting Moments Unfold in #{team.name}'s Recent Matches",
@@ -362,12 +360,15 @@ Team.all.each do |team|
     "Historic Victory for #{team.name} in a Match Filled with High-Stakes Drama"
   ]
 
+  n = rand(2..3)
+
   n.times do
-    title = eval("\"" + article_titles.sample + "\"")
+    random_index = rand(3)
+    title = eval("\"" + article_titles[random_index] + "\"")
     thumbnail_urls = eval("#{team.sport.sport_type.downcase}_thumbnail_urls")
     thumbnail_url = thumbnail_urls.sample
-    content = eval("\"" + article_contents.sample + "\"")
-    summary = eval("\"" + article_summaries.sample + "\"")
+    content = eval("\"" + article_contents[random_index] + "\"")
+    summary = eval("\"" + article_summaries[random_index] + "\"")
     Article.create!(
       title: title,
       thumbnail_url: thumbnail_url,
