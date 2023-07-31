@@ -3,6 +3,7 @@ class MatchesPresenter
     matches.map do |match|
       # Calculate and update score, if match is running.
       calculate_score(match)
+
       {
         id: match.id,
         name: match.name,
