@@ -34,13 +34,6 @@ hockey_thumbnail_urls = %w[
   https://images.pexels.com/photos/13305765/pexels-photo-13305765.jpeg?auto=compress&cs=tinysrgb&w=1440
 ]
 
-rugby_thumbnail_urls = %w[
-  https://images.pexels.com/photos/209956/pexels-photo-209956.jpeg?auto=compress&cs=tinysrgb&w=1440
-  https://images.pexels.com/photos/163398/football-american-football-canadian-university-canadian-football-163398.jpeg?auto=compress&cs=tinysrgb&w=1440
-  https://images.pexels.com/photos/128457/pexels-photo-128457.jpeg?auto=compress&cs=tinysrgb&w=1440
-  https://images.pexels.com/photos/260606/pexels-photo-260606.jpeg?auto=compress&cs=tinysrgb&w=1440
-]
-
 sports_articles = {
   6 => [
     {
@@ -83,7 +76,6 @@ sports_articles = {
       'content' =>
         "A promising young cricketer has made a sensational debut in international cricket, capturing the attention of fans and cricketing legends alike. The player displayed remarkable skills, exhibiting a sound technique and maturity beyond their years. With a blend of elegant stroke play and calculated bowling, the young cricketer left a lasting impression on the field. This debut performance has generated excitement and optimism for the player's future and has drawn comparisons to legendary cricketers who made a similar impact early in their careers.\n\nThe young cricketer's debut match was a testament to their dedication, hard work, and natural talent. From the moment they walked onto the field, it was evident that they possessed the skills and temperament required to succeed at the highest level. Their batting showcased impeccable timing and shot selection, while their bowling displayed precision and the ability to outfox experienced batsmen. The performance earned accolades from cricketing legends, who praised the young cricketer's composure and maturity under pressure.\n\nAs fans, we eagerly anticipate witnessing the continued growth and success of this promising talent. The future of cricket looks bright with the emergence of such gifted players, and we can't wait to see how their career unfolds. Their debut match serves as a reminder of the beauty of the sport and the endless possibilities that lie ahead."
     }
-    # More articles
   ],
   2 => [
     {
@@ -265,53 +257,6 @@ sports_articles = {
       'content' =>
         "Hockey is entering a new era of innovation, with advancements in technology shaping the future of the game. From cutting-edge equipment to data-driven analytics, these developments are transforming the sport and elevating its standards.\n\nOne area of innovation is in equipment design. Manufacturers are continually developing lighter, more durable sticks, advanced goalie equipment with enhanced protection, and high-performance skates that optimize speed and agility. These advancements allow players to perform at their best while ensuring their safety on the ice.\n\nData analytics and tracking systems are also revolutionizing the way hockey is played and analyzed. These technologies provide coaches and teams with valuable insights into player performance, strategies, and game dynamics. They enable teams to make data-driven decisions, optimize player development, and enhance overall team performance.\n\nIn addition, technological innovations have greatly enhanced the spectator experience. High-definition video displays, interactive fan engagement platforms, and real-time statistics provide fans with a more immersive and engaging experience both in arenas and when watching from home.\n\nAs technology continues to advance, the game of hockey evolves alongside it. These innovations not only improve player performance and safety but also enhance the enjoyment and accessibility of the sport for fans worldwide."
     }
-  ],
-  3 => [
-    {
-      'title' =>
-        'Thrilling Rugby Showdown: Rival Teams Battle in a Test of Skill and Physicality',
-      'summary' =>
-        'In an exhilarating rugby match, rival teams face off in a fierce battle of skill, strength, and determination, captivating fans with a thrilling display of athleticism and strategy.',
-      'thumbnail_url' => rugby_thumbnail_urls.sample,
-      'content' =>
-        "Rugby enthusiasts were treated to an intense showdown as rival teams clashed on the field in a highly anticipated match. The game was a physical and tactical contest, with both sides showcasing their skill, determination, and strategic acumen.\n\nThe players exhibited exceptional speed, agility, and power, executing bone-crushing tackles, precise passes, and lightning-fast runs. The match was marked by a series of dramatic moments, including breakaway tries, daring offloads, and hard-fought turnovers.\n\nThe rivalry between the teams was evident in the ferocity of the contest, with players leaving everything on the field. The electric atmosphere in the stadium fueled the players' intensity and spurred them on to showcase their best rugby skills.\n\nAs the match reached its climax, spectators were on the edge of their seats, witnessing the ebb and flow of the game. The final moments were filled with suspense and excitement as the outcome hung in the balance, leaving fans in awe of the skill, tenacity, and sportsmanship displayed by both teams.\n\nThis captivating rugby showdown serves as a testament to the physicality, skill, and spirit of the game, reinforcing rugby's reputation as one of the most thrilling and demanding sports in the world."
-    },
-    {
-      'title' =>
-        'Emerging Talent in Rugby: Young Player Makes Waves with Outstanding Performances',
-      'summary' =>
-        'A young rugby player announces their arrival on the big stage, impressing fans and experts with their exceptional skills, versatility, and potential to become a future star of the sport.',
-      'thumbnail_url' => rugby_thumbnail_urls.sample,
-      'content' =>
-        "In the world of rugby, a young prodigy has burst onto the scene, capturing the attention and admiration of fans and experts alike. Despite their tender age, the player showcases remarkable skill, versatility, and an innate understanding of the game.\n\nWith each match, the rising star continues to shine, delivering outstanding performances and demonstrating their ability to excel in various positions on the field. Their speed, agility, and precision in executing tackles, passes, and kicks have earned them recognition as one of the most promising talents in the sport.\n\nThe emergence of this young player brings a new level of excitement to the rugby landscape. Fans eagerly anticipate their future contributions and the impact they will have on their team's success. The player's rise to prominence serves as an inspiration to aspiring young athletes, highlighting the rewards of hard work, dedication, and a passion for rugby.\n\nAs the rugby community rallies behind this rising star, the future looks bright for both the individual and the sport of rugby."
-    },
-    {
-      'title' =>
-        'Rugby Championship Comes to a Thrilling Conclusion: Unforgettable Matches and Intense Rivalries',
-      'summary' =>
-        'The rugby championship reaches its climax with a series of captivating matches, intense rivalries, and unforgettable moments that showcase the skill, determination, and fierce competition of the sport.',
-      'thumbnail_url' => rugby_thumbnail_urls.sample,
-      'content' =>
-        "The rugby championship concluded with a crescendo of excitement and drama, providing fans with a spectacle of unforgettable matches, fierce rivalries, and exceptional displays of athleticism.\n\nAs the tournament progressed, teams showcased their strategic prowess, physicality, and ability to adapt to different game situations. Each match brought its own share of intense moments, nail-biting finishes, and jaw-dropping plays that had spectators on the edge of their seats.\n\nThe rivalries on display added an extra layer of intensity to the competition. Traditional foes faced off in battles that ignited passions and showcased the rich history and heritage of rugby. These encounters brought out the best in the players, pushing them to deliver performances that will be remembered for years to come.\n\nAs the final whistle blew and the champions were crowned, the rugby community celebrated the tournament's legacy. Fans and players alike reflected on the camaraderie, sportsmanship, and enduring spirit that make rugby a truly special sport.\n\nWith the conclusion of the championship, anticipation builds for future editions, as rugby continues to captivate audiences around the globe."
-    },
-    {
-      'title' =>
-        'Legendary Rugby Player Announces Retirement: Reflecting on a Storied Career',
-      'summary' =>
-        'A legendary rugby player bids farewell to the sport, prompting reflection on their illustrious career, impact on the game, and enduring legacy as a true icon of rugby.',
-      'thumbnail_url' => rugby_thumbnail_urls.sample,
-      'content' =>
-        "In a poignant moment, a legendary rugby player has decided to retire, bringing an end to a remarkable career. The player's contributions to the sport are immeasurable, with countless achievements, accolades, and a lasting legacy that will be celebrated for generations.\n\nThroughout their career, the rugby icon showcased extraordinary skill, leadership, and an unwavering commitment to the game. Their ability to break through defenses, orchestrate plays, and inspire their teammates set them apart as one of the greatest players in rugby history.\n\nAs the player bids farewell, the rugby community honors their remarkable achievements and expresses gratitude for the indelible impact they have had on the sport. Fans and fellow players alike reminisce about unforgettable tries, iconic moments, and the inspiration the player provided to a new generation of rugby enthusiasts.\n\nThe retirement of this rugby legend marks the end of an era, but their legacy lives on. Their achievements and the values they embodied, such as teamwork, sportsmanship, and dedication, continue to inspire future generations of rugby players, ensuring that their impact on the sport will endure."
-    },
-    {
-      'title' =>
-        'Advancements in Rugby Technology: Innovations Transforming the Game',
-      'summary' =>
-        'Technological advancements in rugby are reshaping the sport, enhancing player performance, safety, and the overall fan experience.',
-      'thumbnail_url' => rugby_thumbnail_urls.sample,
-      'content' =>
-        "Rugby is entering a new era of technological innovation, with advancements that are revolutionizing the game and improving various aspects of the sport.\n\nOne area of innovation is in player equipment. Manufacturers are developing lightweight and durable protective gear that ensures player safety without compromising mobility or comfort. Additionally, advancements in rugby boots provide improved traction, stability, and maneuverability, allowing players to perform at their best on the field.\n\nTechnological innovations have also enhanced training and performance analysis. Wearable devices and tracking systems provide real-time data on player movements, physical exertion, and performance metrics. This data enables coaches and trainers to tailor training programs, identify areas for improvement, and optimize player development.\n\nFurthermore, video technology and instant replay systems have enhanced referee decision-making, ensuring fairness and accuracy in officiating. Fans also benefit from these advancements, as high-definition video displays and interactive features provide a more immersive and engaging viewing experience.\n\nAs rugby embraces these technological advancements, the sport evolves to new heights. These innovations not only enhance player performance, safety, and the overall fan experience but also contribute to the continued growth and popularity of rugby worldwide."
-    }
   ]
 }
 
@@ -337,4 +282,102 @@ all_articles.each do |article_data|
     content: article_data['content'],
     sport: sport
   )
+end
+
+puts 'seeding articles with teams'
+# Create articles with teams
+
+article_titles = [
+  'A Show of Skill and Sportsmanship',
+  'The Underdogs Triumph in Stunning Game',
+  'Excitement and Drama in Unforgettable Match'
+]
+
+article_contents = [
+  "The tension in the air was palpable as the match was about to start. The \#{sport.name} fans from both \#{teams[0].name} and \#{teams[1].name} were waiting with bated breath. This wasn't just a game, it was a test of will, skill, and determination.\n\n
+  The first half of the game was a brilliant display of tactics. \#{teams[0].name} and \#{teams[1].name} were closely matched, and the audience was on the edge of their seats. The atmosphere was electrifying. It was a moment that was going to be etched in the annals of \#{sport.name} history.\n\n
+  The second half of the game was no different. \#{teams[0].name} came out stronger, pushing \#{teams[1].name} to their limits. But \#{teams[1].name} was not one to back down. They matched \#{teams[0].name}'s aggression with their resilience.\n\n
+  As the final whistle blew, there were no losers. Both \#{teams[0].name} and \#{teams[1].name} had given their all. They had not just played a game, they had showcased the spirit of \#{sport.name} to millions of their fans. The match will be remembered not just for its result, but for its demonstration of skill, passion, and sportsmanship.",
+  "The day had finally arrived. The match between \#{teams[0].name} and \#{teams[1].name} in the \#{sport.name} league was finally here. Fans from both sides were cheering for their respective teams, creating an atmosphere that was nothing short of spectacular.\n\n
+  The match started with \#{teams[0].name} taking the lead. They were playing a brilliant game, showing why they were considered one of the best in the \#{sport.name}. But \#{teams[1].name} was not far behind. They matched the intensity of \#{teams[0].name}, making the game very engaging.\n\n
+  As the game progressed, \#{teams[1].name} started gaining momentum. Their strategy was working, and they were slowly but surely closing the gap. The fans were ecstatic, cheering for every point their team scored.\n\n
+  The last few minutes of the game were intense. Both teams were neck and neck, with the winner anyone's guess. And then, in an unexpected twist, \#{teams[1].name} managed to score the decisive goal. The underdogs had triumphed! The crowd erupted in joy, making the victory even sweeter for \#{teams[1].name}.",
+  "The excitement was in the air as the \#{sport.name} match was about to start. It was the day of the big game between \#{teams[0].name} and \#{teams[1].name}, and the fans couldn't be more excited.\n\n
+  The game started on a high note, with both teams showcasing their skills and tactics. The crowd was on their feet, cheering for their teams. The first half of the game saw \#{teams[0].name} taking a slight lead. But \#{teams[1].name} was not far behind.\n\n
+  As the second half of the game started, \#{teams[1].name} came back stronger. They were determined to win the game. Their strategy was working, and they managed to level the scores.\n\n
+  The last few minutes of the game were a nail-biter. Both teams had their fair share of chances, but the game ended in a draw. It was a match that was filled with excitement, suspense, and drama, a true reflection of the spirit of \#{sport.name}."
+]
+
+article_summaries = [
+  'A match showcasing the spirit of the sport, skill, passion, and sportsmanship',
+  'An unexpected outcome as the underdogs triumph, creating an atmosphere of jubilation',
+  'A game filled with excitement, suspense, and drama, a true reflection of the spirit of the sport'
+]
+
+2.times do
+  Sport.all.each do |sport|
+    # Skipping rugby becuase to have a sport and teams associated with it have no articles to test empty state in the frontend built by students.
+    next if sport.name == 'Rugby'
+
+    teams = sport.teams.sample(2) # Selecting two random teams from this sport
+    random_index = rand(3)
+    title = article_titles[random_index]
+    content = article_contents[random_index]
+    summary = article_summaries[random_index]
+    thumbnail_urls = eval("#{sport.sport_type.downcase}_thumbnail_urls")
+    thumbnail_url = thumbnail_urls.sample
+
+    Article.create!(
+      title: title,
+      thumbnail_url: thumbnail_url,
+      content: eval("\"" + content + "\""), # Evaluating the string to replace the placeholders
+      summary: summary,
+      sport: sport,
+      teams: teams
+    )
+  end
+end
+
+puts 'seeding articles with single team'
+
+Team.all.each do |team|
+  # Skipping rugby becuase to have a sport and teams associated with it have no articles to test empty state in the frontend built by students.
+  next if team.sport.sport_type == 'rugby'
+
+  article_titles = [
+    "Exciting Moments Unfold in #{team.name}'s Recent Matches",
+    "Incredible Turnaround as #{team.name} Elevates Their Game",
+    "An Unforgettable Match: #{team.name} Against All Odds"
+  ]
+
+  article_contents = [
+    "In the realm of sporting prowess, #{team.name} has firmly planted their flag with their latest match being nothing short of spectacular. The team's ace, renowned for their lightning-quick reflexes and intuitive understanding of the game, scored numerous points, leaving both the audience and opponents in awe.\n\nCoupled with their solid defense, #{team.name}'s beautiful balance of offense and defense made the match a visual spectacle. Furthermore, their strategic play-calling was instrumental in gaining the upper hand at crucial moments. The match didn't just mark a victory but a comprehensive demonstration of #{team.name}'s mastery over the sport.\n\nThe atmosphere in the stadium was electric, with fans roaring in approval. It was clear that this match would be etched into the annals of the sport, a testament to the team's strength and determination.",
+    "In a heart-stopping moment, #{team.name} flipped the narrative of the match, showcasing an incredible performance. The first half saw them trailing behind, struggling to match the relentless onslaught of the opponent team. However, the tide began to turn during the second half.\n\n#{team.name} returned with a vengeance. Their star player delivered an impeccable performance, driving the team to equalize and then surpass their opponents. The crowd was on their feet, hearts pounding as #{team.name} pulled a victory from the jaws of defeat.\n\nTheir perseverance and never-give-up spirit were an inspiration to everyone present. The match served as a stark reminder of why sports are so beloved, showcasing human resilience, determination, and the will to overcome all odds.",
+    "The latest match of #{team.name} has secured its place in sports history, brimming with high stakes drama and a thrilling conclusion. The match kept fans on the edge of their seats, with unexpected twists and turns at every juncture.\n\nThe team started the match as underdogs, given their opponents' impressive track record. But they rose to the occasion, exceeding everyone's expectations. Each player demonstrated exceptional skill and coordination, proving that teamwork truly is the key to success.\n\nIn the end, #{team.name} emerged victorious, etching their name in the annals of their sport's history. Their performance proved that even when the odds are stacked against a team, with the right attitude and determination, victory is within grasp."
+  ]
+
+  article_summaries = [
+    "Review of #{team.name}'s Thrilling Performance in their Latest Match",
+    "A Stunning Victory: #{team.name}'s Unforgettable Performance Against Odds",
+    "Historic Victory for #{team.name} in a Match Filled with High-Stakes Drama"
+  ]
+
+  n = rand(2..3)
+
+  n.times do
+    random_index = rand(3)
+    title = eval("\"" + article_titles[random_index] + "\"")
+    thumbnail_urls = eval("#{team.sport.sport_type.downcase}_thumbnail_urls")
+    thumbnail_url = thumbnail_urls.sample
+    content = eval("\"" + article_contents[random_index] + "\"")
+    summary = eval("\"" + article_summaries[random_index] + "\"")
+    Article.create!(
+      title: title,
+      thumbnail_url: thumbnail_url,
+      content: content,
+      summary: summary,
+      sport: team.sport,
+      teams: [team]
+    )
+  end
 end
