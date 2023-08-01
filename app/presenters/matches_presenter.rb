@@ -1,12 +1,16 @@
 class MatchesPresenter
   def self.index(matches)
     matches.map do |match|
+      # Calculate and update score, if match is running.
+      calculate_score(match)
+
       {
         id: match.id,
         name: match.name,
         location: match.location,
         sportName: sport_name(match),
-        endsAt: match.ends_at
+        endsAt: match.ends_at,
+        isRunning: match.running?
       }
     end
   end
@@ -27,18 +31,19 @@ class MatchesPresenter
     }
   end
 
+  # Updates score and ends_at, if `running` is true.
   def self.calculate_score(match)
     teams = match.teams
     i = -1
     if match.running?
       LiveScoreHelper.live_score(match).split(',')
     elsif match.score.nil?
-      # if match has ended and score is nil
+      # if match is not running and score is nil, then generate random score
       score = LiveScoreHelper.random_score
       match.update!(score: score)
       score.split(',')
     else
-      # if match has ended and score is not nil
+      # if match is not running, then return saved random score
       match.score.split(',')
     end.map do |s|
       i += 1
