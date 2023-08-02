@@ -10,7 +10,8 @@ class MatchesPresenter
         location: match.location,
         sportName: sport_name(match),
         endsAt: match.ends_at,
-        isRunning: match.running?
+        isRunning: match.running?,
+        teams: teams(match)
       }
     end
   end
